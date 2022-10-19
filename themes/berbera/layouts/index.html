@@ -1,0 +1,104 @@
+{{ define "main" }}
+<main>
+    <div class="homepage">
+        <div class="row">
+            <div class="col-sm-12">
+                <h1>
+                    <span class="minor_line">Reusable things</span>
+                    <br>
+                    <span class="major_line">Data Science &amp; Machine Learning</span>
+                    <br>
+                    <span class="minor_line">To save materials</span>
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 blurb">
+                <p>
+                    <a href="about/quan_dang/">I am a Data Scientist</a> at FPT.
+                </p>
+
+            </div>
+        </div>
+
+<!-- NOTES SECTION -->
+
+<!-- <div class="row" id="notes">
+    <div class="col-sm-12">
+        <h2 class="category_header mt-0">Notes <small class="text-muted">- explanations, ideas, and lessons learned</small></h2>
+    </div>
+</div> -->
+
+
+<!--
+
+
+
+
+
+-->
+<!-- CODE SECTION -->
+
+        <div class="row" id="code_snippets">
+            <div class=" col-sm-12">
+                <h2 class="category_header mt-0">Code Tutorials <small class="text-muted">- short annotated coding guides</small></h2>
+            </div>
+        </div>
+        
+
+        <!-- <div class="row" id="code_machine_learning">
+            <div class="col-sm-12">
+                <h3 class="category_header">Machine Learning</h3>
+            </div>
+        </div> -->
+
+        <!-- <div class="row" id="code_statistics">
+            <div class="col-sm-12">
+                <h3 class="category_header">Statistics</h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Basics</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/code/statistics/basics/") }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Frequentist</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
+                                {{ $pages = .Site.RegularPages }}
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/code/statistics/frequentist/") }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+</main>
+{{ end }}
