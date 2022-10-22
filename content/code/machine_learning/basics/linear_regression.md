@@ -15,5 +15,5 @@ $$\mathbf{Y} = \mathbf{X}\beta + \epsilon$$
 - $\epsilon \sim \mathcal{N}(\mu, \sigma^2)$: random noise
 - maximum likelihood
 - exponential family distribution
-
+- Closed form
 
