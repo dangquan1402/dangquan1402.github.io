@@ -6,8 +6,7 @@ description: "About Quan Dang."
 type: page
 draft: false
 outputs:
-    - html
+  - html
 ---
 
-
-I have spent more than three years in Machine Learning fields.
+This is Quan Dang, again.
