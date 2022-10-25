@@ -125,7 +125,7 @@
                             {{ if .IsHome }}
                             {{ $pages = .Site.RegularPages }}
                             {{ end }}
-                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/tabular_data") }}
+                            {{ range (where $pages "File.Dir" "in" "code/machine_learning/tabular_data/") }}
                             <li>
                                 <a href="{{.Permalink}}">{{.Title}}</a>
                             </li>
