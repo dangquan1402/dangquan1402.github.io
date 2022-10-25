@@ -21,58 +21,59 @@
             </div>
         </div>
 
-<!-- NOTES SECTION -->
+        <!-- NOTES SECTION -->
 
-<!-- <div class="row" id="notes">
+        <!-- <div class="row" id="notes">
     <div class="col-sm-12">
         <h2 class="category_header mt-0">Notes <small class="text-muted">- explanations, ideas, and lessons learned</small></h2>
     </div>
 </div> -->
 
 
-<!--
+        <!--
 
 
 
 
 
 -->
-<!-- CODE SECTION -->
+        <!-- CODE SECTION -->
 
-<div class="row" id="code_snippets">
-    <div class=" col-sm-12">
-        <h2 class="category_header mt-0">Code Tutorials <small class="text-muted">- short annotated coding guides</small></h2>
-    </div>
-</div>
+        <div class="row" id="code_snippets">
+            <div class=" col-sm-12">
+                <h2 class="category_header mt-0">Code Tutorials <small class="text-muted">- short annotated coding
+                        guides</small></h2>
+            </div>
+        </div>
 
-<div class="row" id="code_machine_learning">
-    <div class="col-sm-12">
-        <h3 class="category_header">Machine Learning</h3>
-    </div>
-</div>
+        <div class="row" id="code_machine_learning">
+            <div class="col-sm-12">
+                <h3 class="category_header">Machine Learning</h3>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-                <h4 class="card-header">Basics</h4>
-                <div class="card-body">
-                    <ul>
-                        {{ $pages := .Pages }}
-                        {{ if .IsHome }}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Basics</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
                             {{ $pages = .Site.RegularPages }}
-                        {{ end }}
-                        {{ range (where $pages "File.Dir" "in" "/code/machine_learning/basics/") }}
-                        <li>
-                            <a href="{{.Permalink}}">{{.Title}}</a>
-                        </li>
-                        {{ end }}
-                    </ul>
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/basics/") }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
+        <!-- <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <h4 class="card-header">NLP</h4>
@@ -112,58 +113,58 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-                <h4 class="card-header">Tabular Data</h4>
-                <div class="card-body">
-                    <ul>
-                        {{ $pages := .Pages }}
-                        {{ if .IsHome }}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <h4 class="card-header">Tabular Data</h4>
+                    <div class="card-body">
+                        <ul>
+                            {{ $pages := .Pages }}
+                            {{ if .IsHome }}
                             {{ $pages = .Site.RegularPages }}
-                        {{ end }}
-                        {{ range (where $pages "File.Dir" "in" "/code/machine_learning/tabular_data") }}
-                        <li>
-                            <a href="{{.Permalink}}">{{.Title}}</a>
-                        </li>
-                        {{ end }}
-                    </ul>
+                            {{ end }}
+                            {{ range (where $pages "File.Dir" "in" "/code/machine_learning/tabular_data") }}
+                            <li>
+                                <a href="{{.Permalink}}">{{.Title}}</a>
+                            </li>
+                            {{ end }}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-<div class="row" id="code_python">
-    <div class="col-sm-12">
-        <h3 class="category_header">Python</h3>
-    </div>
-</div>
+        <div class="row" id="code_python">
+            <div class="col-sm-12">
+                <h3 class="category_header">Python</h3>
+            </div>
+        </div>
 
-<div class="row" id="code_statictics">
-    <div class="col-sm-12">
-        <h3 class="category_header">Statistics</h3>
-    </div>
-</div>
-
-
-<div class="row" id="code_linux">
-    <div class="col-sm-12">
-        <h3 class="category_header">Linux</h3>
-    </div>
-</div>
-
-<div class="row" id="code_docker">
-    <div class="col-sm-12">
-        <h3 class="category_header">Docker</h3>
-    </div>
-</div>
+        <div class="row" id="code_statictics">
+            <div class="col-sm-12">
+                <h3 class="category_header">Statistics</h3>
+            </div>
+        </div>
 
 
+        <div class="row" id="code_linux">
+            <div class="col-sm-12">
+                <h3 class="category_header">Linux</h3>
+            </div>
+        </div>
 
-        
+        <div class="row" id="code_docker">
+            <div class="col-sm-12">
+                <h3 class="category_header">Docker</h3>
+            </div>
+        </div>
+
+
+
+
 
 </main>
 {{ end }}
