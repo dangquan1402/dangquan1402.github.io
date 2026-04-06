@@ -1,3 +1,3 @@
-# notes
+# dangquan1402.github.io
 
-This repo is strongly forked on [Chris Albon Page](https://github.com/chrisalbon/short_notes_on_machine_learning).
+Redirects to [LLM Engineering Notes](https://dangquan1402.github.io/llm-engineering-notes/).
