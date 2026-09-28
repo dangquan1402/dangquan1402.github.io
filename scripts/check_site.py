@@ -50,6 +50,10 @@ LANDING = {
         "6762545311",
         "https://apps.apple.com/us/app/img2pdf-image-to-pdf-maker/id6762545311",
     ),
+    "linkpocket/index.html": (
+        "6814458876",
+        "https://apps.apple.com/us/app/linkpocket-bookmark-folders/id6814458876",
+    ),
 }
 
 
