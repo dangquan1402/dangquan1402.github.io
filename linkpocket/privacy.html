@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinkPocket - Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      color: #1E293B;
+      background: #F8FAFC;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 48px 40px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle {
+      color: #64748B;
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 28px;
+      margin-bottom: 8px;
+    }
+    p, li {
+      font-size: 15px;
+      color: #475569;
+      margin-bottom: 12px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    .highlight {
+      background: #EFF6FF;
+      border-left: 3px solid #2563EB;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+    .highlight p {
+      margin-bottom: 0;
+      color: #1E40AF;
+      font-weight: 500;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #E2E8F0;
+      font-size: 13px;
+      color: #94A3B8;
+    }
+    a { color: #2563EB; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .nav {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <p class="nav"><a href="./">LinkPocket</a> &middot; Privacy Policy &middot; <a href="support.html">Support</a></p>
+
+    <h1>Privacy Policy</h1>
+    <p class="subtitle">LinkPocket - Bookmark Folders &middot; Effective date: September 27, 2026</p>
+
+    <div class="highlight">
+      <p>LinkPocket is designed to help you organize bookmarks privately. We do not sell your personal data, and we do not use third-party advertising or tracking SDKs.</p>
+    </div>
+
+    <h2>Account &amp; Authentication Processor</h2>
+    <p>LinkPocket accounts use email and password authentication provided by Supabase, our hosted backend and database processor. Your login credentials and authentication sessions are securely handled by Supabase. Passwords are never stored in plain text.</p>
+
+    <h2>What We Store</h2>
+    <p>When you use LinkPocket, the following data is stored under your user account:</p>
+    <ul>
+      <li><strong>Account Details:</strong> Your email address and unique user identifier.</li>
+      <li><strong>Bookmarks:</strong> URL, webpage title, description, image URL (thumbnail preview), custom notes, user-assigned tags, assigned folder, and read state (unread marker and read timestamp).</li>
+      <li><strong>Folders / Categories:</strong> Category names, custom icon identifiers, color selections, and sorting order.</li>
+    </ul>
+
+    <h2>AI Category Suggestions</h2>
+    <p>When you save or inspect a link, LinkPocket offers automatic category suggestions to help you file links quickly into your folders:</p>
+    <ul>
+      <li>To generate suggestions, the link metadata (URL, page title, page description, and domain) along with your category names are processed through a Supabase Edge Function that invokes the TypeSafe AI categorization service (using the TypeSafe Jev model).</li>
+      <li>If the TypeSafe service is unavailable, LinkPocket falls back to keyword heuristics.</li>
+      <li>No personal profile details or bookmark notes are transmitted to TypeSafe.</li>
+    </ul>
+
+    <h2>No Advertising, Analytics, or Tracking SDKs</h2>
+    <p>LinkPocket contains no third-party analytics frameworks, no advertising networks, and no commercial tracking SDKs. We do not track your activity across third-party websites or services.</p>
+
+    <h2>Clipboard Usage</h2>
+    <p>On iOS, LinkPocket can check your clipboard when you open the app or use the "Save copied link" action to determine if it contains a valid web URL. LinkPocket reads the clipboard only to offer saving the copied link to your bookmarks. We do not store, log, or transmit any clipboard content unless you explicitly choose to save the detected link.</p>
+
+    <h2>Extensions Data Flow</h2>
+    <ul>
+      <li><strong>iOS Share Extension:</strong> Allows saving links directly from Safari and other apps via the iOS share sheet. The extension accesses your authenticated session securely via an Apple App Group (<code>group.com.linkpocket.app</code>) and communicates directly with Supabase and the suggestion Edge Function. It saves your bookmark without needing to launch the main app.</li>
+      <li><strong>Browser Extension:</strong> A Manifest V3 extension that creates a two-way synchronization bridge between your desktop browser bookmarks and LinkPocket. It connects to your LinkPocket account via Supabase using your email and password credentials, synchronizing bookmarks within a dedicated <code>[LinkPocket]</code> folder on your browser bookmarks bar.</li>
+    </ul>
+
+    <h2>Data Storage, Exports &amp; Apple Services</h2>
+    <p>Your bookmark collection and categories are hosted on Supabase servers. LinkPocket does not use automated background synchronization through Apple iCloud. If you wish to create a manual backup, LinkPocket allows you to export your data as a JSON archive or a standard Netscape HTML bookmark file. On iOS, exports open the native Share sheet, allowing you to save the file to Apple Files, iCloud Drive, or any destination you select.</p>
+
+    <h2>Data Retention &amp; Account Deletion</h2>
+    <p>Your bookmark and category data is retained for as long as your account remains active. Users can delete their account and all saved data directly from Settings inside the app. When you delete your account, your profile, folders, bookmarks, and all associated information are permanently removed from the database.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>LinkPocket is not directed toward children under the age of 13 and does not knowingly collect personal information from children.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>Any updates to this privacy policy will be posted on this page with a revised effective date.</p>
+
+    <h2>Contact</h2>
+    <p>If you have questions about this privacy policy or your personal data, contact us at <a href="mailto:ohioa4@gmail.com">ohioa4@gmail.com</a>.</p>
+
+    <div class="footer">
+      <p>&copy; 2026 LinkPocket. All rights reserved. &middot; <a href="support.html">Support</a></p>
+    </div>
+  </div>
+</body>
+</html>
