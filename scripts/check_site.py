@@ -20,8 +20,19 @@ from urllib.parse import urlparse
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://dangquan1402.github.io"
 SKIP_DIRS = {".git", ".github", ".claude", "scripts", "node_modules"}
-# The root page is a redirect owned by the captain, not part of the app pages.
-NOT_IN_SITEMAP = {"index.html"}
+# The root page and moved app pages are redirects, not part of the app pages in sitemap.
+REDIRECTS = {
+    "pdf-compressor/index.html": "https://smartpdfcompressor.com/",
+    "pdf-compressor/support.html": "https://smartpdfcompressor.com/support/",
+    "pdf-compressor/privacy.html": "https://smartpdfcompressor.com/privacy/",
+    "pdf-compressor/compress-pdf-iphone-without-uploading/index.html": "https://smartpdfcompressor.com/compress-pdf-iphone-without-uploading/",
+    "pdf-compressor/shrink-scanned-pdf-for-email/index.html": "https://smartpdfcompressor.com/shrink-scanned-pdf-for-email/",
+    "pasture/index.html": "https://pasturebible.com/",
+    "pasture/privacy.html": "https://pasturebible.com/privacy/",
+    "pasture/terms.html": "https://pasturebible.com/terms/",
+    "pasture/support.html": "https://pasturebible.com/support/",
+}
+NOT_IN_SITEMAP = {"index.html"} | set(REDIRECTS.keys())
 # Paths on this host that are served by other repos' project pages.
 OTHER_REPOS = ("/llm-engineering-notes/",)
 BANNED = [
@@ -42,10 +53,6 @@ BANNED = [
     (re.compile(r"6760960875"), "competitor app id"),
 ]
 LANDING = {
-    "pdf-compressor/index.html": (
-        "6757997785",
-        "https://apps.apple.com/us/app/smart-pdf-compressor-reduce/id6757997785",
-    ),
     "img2pdf/index.html": (
         "6762545311",
         "https://apps.apple.com/us/app/img2pdf-image-to-pdf-maker/id6762545311",
@@ -55,6 +62,18 @@ LANDING = {
         "https://apps.apple.com/us/app/linkpocket-bookmark-folders/id6814458876",
     ),
 }
+
+
+def check_redirect(rel, text, target, errors):
+    for needle in (
+        f'<link rel="canonical" href="{target}">',
+        f'<meta http-equiv="refresh" content="0; url={target}">',
+        '<meta name="robots" content="noindex">',
+        f'location.replace("{target}")',
+        f'This page has moved to <a href="{target}">{target}</a>',
+    ):
+        if needle not in text:
+            errors.append(f"{rel}: redirect missing {needle!r}")
 
 
 def check_landing(rel, text, blocks, errors):
@@ -169,6 +188,8 @@ def main() -> int:
                 errors.append(f"{rel}: JSON-LD block {i + 1} does not parse: {e}")
         if str(rel) in LANDING:
             check_landing(str(rel), text, blocks, errors)
+        if str(rel) in REDIRECTS:
+            check_redirect(str(rel), text, REDIRECTS[str(rel)], errors)
 
         for link in parser.links:
             f = resolve(link, page)
@@ -187,6 +208,9 @@ def main() -> int:
         if f is None or not f.is_file():
             errors.append(f"sitemap.xml: {loc} has no matching file")
         else:
+            rel = str(f.relative_to(ROOT))
+            if rel in NOT_IN_SITEMAP:
+                errors.append(f"sitemap.xml: {loc} should not be in sitemap ({rel})")
             listed.add(f)
     for page in all_pages:
         rel = str(page.relative_to(ROOT))
