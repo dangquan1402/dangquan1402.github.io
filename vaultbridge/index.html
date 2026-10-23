@@ -45,7 +45,7 @@
         "name": "How does VaultBridge protect document privacy when using Claude?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "All document reading, OCR, and detection happen entirely on your Mac. Only masked text containing placeholders (such as [PERSON_1] or [DATE_1]) is shared with Claude. When you restore the AI's response, placeholders are replaced locally on your Mac, and restored values are never sent back to Claude."
+          "text": "All document reading, OCR, and detection happen entirely on your Mac. VaultBridge returns masked text, with detected values replaced by placeholders such as [PERSON_1] or [DATE_1], to Claude. Values it misses stay in the text. When you restore the AI's response, placeholders are replaced locally on your Mac, and the tool never returns restored values to Claude."
         }
       },
       {
@@ -89,22 +89,22 @@
 
     <h2>What it does</h2>
     <ul>
-      <li><strong>Offline on-device processing:</strong> All document reading, text extraction, and detection run locally on your Mac. The application is sandboxed with zero network entitlements, makes no network connections, has no telemetry or analytics, and downloads nothing at runtime.</li>
-      <li><strong>Local document ingestion:</strong> Ingests PDFs and images (including <code>.pdf</code>, <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.tiff</code>, <code>.tif</code>, and <code>.heic</code>) via drag-and-drop or file picker, supporting folders up to 500 files and multi-frame TIFF images.</li>
+      <li><strong>Offline on-device processing:</strong> All document reading, text extraction, and detection run locally on your Mac. The desktop app is sandboxed with zero network entitlements, makes no network connections, has no telemetry or analytics, and downloads nothing at runtime.</li>
+      <li><strong>Local document ingestion:</strong> Ingests PDFs and images (including <code>.pdf</code>, <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.tiff</code>, <code>.tif</code>, and <code>.heic</code>) via drag-and-drop (including folders of up to 500 files) or the file picker, supporting multi-frame TIFF images.</li>
       <li><strong>Native text extraction &amp; Vision OCR:</strong> Reads selectable text layers via PDFKit and automatically triggers on-device Apple Vision OCR for scanned or image-based pages.</li>
       <li><strong>Table reconstruction:</strong> Identifies two-dimensional grid layouts and reconstructs them into clean Markdown pipe tables, preserving tabular context for reasoning.</li>
       <li><strong>Smart page routing:</strong> Scores and filters multi-page documents down to relevant pages matching your query focus or industry preset, staying within character and token limits.</li>
-      <li><strong>Multi-tier detection pipeline:</strong> Combines checksummed regexes for structured identifiers (credit cards, routing numbers, SSNs, phone numbers, dates, federal court docket numbers), on-device named entity recognition (bundled GLiNER small model and Apple NLTagger), context classification, and an optional fail-closed safety net for capitalized word sequences.</li>
+      <li><strong>Multi-tier detection pipeline:</strong> Combines pattern rules for structured identifiers (checksum-validated credit card and routing numbers, plus SSNs, phone numbers, dates, and federal court docket numbers), on-device named entity recognition (bundled GLiNER small model and Apple NLTagger), context classification, and an optional fail-closed safety net for capitalized word sequences.</li>
       <li><strong>Deterministic placeholders:</strong> Replaces detected personal and proprietary identifiers with consistent tokens such as <code>[PERSON_1]</code>, <code>[ORG_1]</code>, <code>[DATE_1]</code>, and <code>[SSN_1]</code> across routed pages.</li>
-      <li><strong>Local restoration boundary:</strong> Restores tokens in AI responses back to original values on your Mac. Restored plaintext is written exclusively to the macOS clipboard (marked with concealed and transient pasteboard markers) or saved to a private local file in <code>~/Downloads</code> (with owner-only <code>0600</code> permissions). Original values are never echoed back to Claude.</li>
+      <li><strong>Local restoration boundary:</strong> Restores tokens in AI responses back to original values on your Mac. Restored plaintext is written exclusively to the macOS clipboard (marked with concealed and transient pasteboard markers) or saved to a private local file in <code>~/Downloads</code> (with owner-only <code>0600</code> permissions; file output is available through the Claude connector). The tool never returns restored values to Claude.</li>
       <li><strong>Review before sharing:</strong> Automated detection is not guaranteed and can miss values. Users must review masked output before sharing it.</li>
     </ul>
 
     <h2>The Anonymize &rarr; Reason &rarr; Restore Workflow</h2>
     <ol>
       <li><strong>Anonymize on your Mac:</strong> Open documents in the VaultBridge application or let Claude call the embedded MCP tool (<code>vault_anonymize_file</code>). The document is read locally, tables are reconstructed, detected identifiers are replaced with placeholders, and AI-ready Markdown is generated.</li>
-      <li><strong>Reason in Claude:</strong> Claude receives only the placeholder Markdown. Claude analyzes, summarizes, drafts, or calculates without ever receiving your original sensitive data.</li>
-      <li><strong>Restore locally:</strong> When Claude completes the response, restore the answer via the desktop app (<strong>Restore Clipboard</strong>, ⌘⇧U) or via the MCP restore tool (<code>vault_restore_text</code>). VaultBridge restores original values directly on your Mac, returning only confirmation status to Claude.</li>
+      <li><strong>Reason in Claude:</strong> Claude receives the placeholder Markdown and works on it. Any value the detector missed is sent as written, so review the output first.</li>
+      <li><strong>Restore locally:</strong> Restore with the same tool you anonymized with: text anonymized in the app is restored in the app (<strong>Restore Clipboard</strong>, ⌘⇧U), and text anonymized through Claude is restored with <code>vault_restore_text</code>. The vault lives only in memory, so quitting the app or restarting your Claude client clears it. The tool never returns restored values to Claude.</li>
     </ol>
 
     <h2>Frequently asked questions</h2>
@@ -116,7 +116,7 @@
 
     <div class="faq-item">
       <h3>How does VaultBridge protect document privacy when using Claude?</h3>
-      <p>All document reading, OCR, and detection happen entirely on your Mac. Only masked text containing placeholders (such as [PERSON_1] or [DATE_1]) is shared with Claude. When you restore the AI's response, placeholders are replaced locally on your Mac, and restored values are never sent back to Claude.</p>
+      <p>All document reading, OCR, and detection happen entirely on your Mac. VaultBridge returns masked text, with detected values replaced by placeholders such as [PERSON_1] or [DATE_1], to Claude. Values it misses stay in the text. When you restore the AI's response, placeholders are replaced locally on your Mac, and the tool never returns restored values to Claude.</p>
     </div>
 
     <div class="faq-item">

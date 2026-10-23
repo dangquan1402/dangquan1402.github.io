@@ -169,6 +169,7 @@
 
     <p>If you use the <strong>Claude Code CLI</strong>, register the embedded server with:</p>
     <pre><code>claude mcp add -s user vaultbridge -- /Applications/VaultBridge.app/Contents/MacOS/vaultbridge-mcp</code></pre>
+    <p>Claude Code can also read files directly with its own tools. To keep originals and restored files away from Claude, deny those paths (for example your source folder and <code>~/Downloads</code>) in your Claude Code permissions.</p>
 
     <h2>Frequently Asked Questions</h2>
 
@@ -179,7 +180,7 @@
 
     <div class="faq-item">
       <strong>Can restored personal data leak back to Claude?</strong>
-      <p>No. When you ask Claude to restore an answer via the <code>vault_restore_text</code> MCP tool, the restoration runs entirely on your Mac. The MCP server unmasks the tokens locally and writes the restored plaintext to your macOS clipboard or saves it to a private file in <code>~/Downloads</code> (with owner-only <code>0600</code> permissions). The tool returns only status metadata (such as the number of restored placeholders) to Claude, so real values are never returned to Claude or stored in chat logs.</p>
+      <p>Not through VaultBridge. When you ask Claude to restore an answer via the <code>vault_restore_text</code> MCP tool, the restoration runs entirely on your Mac. The MCP server unmasks the tokens locally and writes the restored plaintext to your macOS clipboard or saves it to a private file in <code>~/Downloads</code> (with owner-only <code>0600</code> permissions). The tool returns only status metadata (such as the number of restored placeholders) to Claude. The tool never returns restored values to Claude.</p>
     </div>
 
     <div class="faq-item">
@@ -199,7 +200,7 @@
 
     <div class="faq-item">
       <strong>Where are my documents and vault mappings stored?</strong>
-      <p>VaultBridge processes files on-device. The application is sandboxed with no network access. Token mappings reside solely in volatile process memory during the active session and are erased when the application or MCP process terminates, or when you clear the vault.</p>
+      <p>VaultBridge processes files on-device. The desktop app is sandboxed with no network entitlement. The Claude connector (<code>vaultbridge-mcp</code>) runs as an unsandboxed command-line process started by your Claude client and can read any local file Claude asks it to open. It has no networking code. Token mappings reside solely in volatile process memory during the active session. The app and the Claude connector each keep their own vault. Restarting Claude Desktop or Claude Code clears the connector's vault, after which placeholders can no longer be restored.</p>
     </div>
 
     <div class="faq-item">
