@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VaultBridge – Offline Document Anonymization &amp; Claude Connector for Mac</title>
+  <meta name="description" content="VaultBridge is an offline macOS app by Quan Dang that anonymizes sensitive documents on-device, replaces detected identifiers with placeholders for Claude, and restores AI answers locally.">
+  <link rel="canonical" href="https://dangquan1402.github.io/vaultbridge/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Quan Dang – macOS apps">
+  <meta property="og:title" content="VaultBridge – Offline Document Anonymization &amp; Claude Connector for Mac">
+  <meta property="og:description" content="Anonymize PDFs and images on your Mac, query Claude using placeholder Markdown, and restore real values locally without exposing sensitive data.">
+  <meta property="og:url" content="https://dangquan1402.github.io/vaultbridge/">
+  <link rel="stylesheet" href="/assets/site.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "VaultBridge",
+    "operatingSystem": "macOS 26.0 or later",
+    "applicationCategory": "ProductivityApplication",
+    "description": "An offline macOS application and local Claude MCP connector that anonymizes documents on-device, replaces detected identifiers with placeholders, and restores AI answers locally without exposing personal data to the cloud.",
+    "url": "https://dangquan1402.github.io/vaultbridge/",
+    "author": {
+      "@type": "Person",
+      "name": "Quan Dang"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is VaultBridge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "VaultBridge is an offline macOS desktop application and bundled Claude connector (stdio MCP server) that anonymizes documents on-device, provides Claude with clean placeholder Markdown, and restores answers locally."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does VaultBridge protect document privacy when using Claude?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "All document reading, OCR, and detection happen entirely on your Mac. VaultBridge returns masked text, with detected values replaced by placeholders such as [PERSON_1] or [DATE_1], to Claude. Values it misses stay in the text. When you restore the AI's response, placeholders are replaced locally on your Mac, and the tool never returns restored values to Claude."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the system requirements for VaultBridge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "VaultBridge requires macOS 26.0 or later on an Apple Silicon Mac, and Claude Desktop or the Claude Code CLI."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I connect VaultBridge to Claude Desktop?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Add the vaultbridge MCP server entry pointing to the embedded binary at /Applications/VaultBridge.app/Contents/MacOS/vaultbridge-mcp in your Claude Desktop configuration file (claude_desktop_config.json)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does VaultBridge guarantee that every sensitive value is detected?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Detection is automated and cannot guarantee complete removal of sensitive information. Detection can miss values, particularly in non-standard formatting, unlabelled numbers, or unstructured health information. You must always review the masked output before sharing it with Claude or external services."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <p class="nav"><a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></p>
+
+    <h1>VaultBridge</h1>
+    <p class="lead">Offline document anonymization and local Claude connector for macOS. Keep your original documents on your Mac, share clean placeholder Markdown with Claude, and restore answers locally.</p>
+
+    <div class="cta">
+      <p>VaultBridge by Quan Dang &middot; macOS 26+ (Apple Silicon) &middot; coming soon</p>
+    </div>
+
+    <h2>What it does</h2>
+    <ul>
+      <li><strong>Offline on-device processing:</strong> All document reading, text extraction, and detection run locally on your Mac. The desktop app is sandboxed with zero network entitlements, makes no network connections, has no telemetry or analytics, and downloads nothing at runtime.</li>
+      <li><strong>Local document ingestion:</strong> Ingests PDFs and images (including <code>.pdf</code>, <code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.tiff</code>, <code>.tif</code>, and <code>.heic</code>) via drag-and-drop (including folders of up to 500 files) or the file picker, supporting multi-frame TIFF images.</li>
+      <li><strong>Native text extraction &amp; Vision OCR:</strong> Reads selectable text layers via PDFKit and automatically triggers on-device Apple Vision OCR for scanned or image-based pages.</li>
+      <li><strong>Table reconstruction:</strong> Identifies two-dimensional grid layouts and reconstructs them into clean Markdown pipe tables, preserving tabular context for reasoning.</li>
+      <li><strong>Smart page routing:</strong> Scores and filters multi-page documents down to relevant pages matching your query focus or industry preset, staying within character and token limits.</li>
+      <li><strong>Multi-tier detection pipeline:</strong> Combines pattern rules for structured identifiers (checksum-validated credit card and routing numbers, plus SSNs, phone numbers, dates, and federal court docket numbers), on-device named entity recognition (bundled GLiNER small model and Apple NLTagger), context classification, and an optional fail-closed safety net for capitalized word sequences.</li>
+      <li><strong>Deterministic placeholders:</strong> Replaces detected personal and proprietary identifiers with consistent tokens such as <code>[PERSON_1]</code>, <code>[ORG_1]</code>, <code>[DATE_1]</code>, and <code>[SSN_1]</code> across routed pages.</li>
+      <li><strong>Local restoration boundary:</strong> Restores tokens in AI responses back to original values on your Mac. Restored plaintext is written exclusively to the macOS clipboard (marked with concealed and transient pasteboard markers) or saved to a private local file in <code>~/Downloads</code> (with owner-only <code>0600</code> permissions; file output is available through the Claude connector). The tool never returns restored values to Claude.</li>
+      <li><strong>Review before sharing:</strong> Automated detection is not guaranteed and can miss values. Users must review masked output before sharing it.</li>
+    </ul>
+
+    <h2>The Anonymize &rarr; Reason &rarr; Restore Workflow</h2>
+    <ol>
+      <li><strong>Anonymize on your Mac:</strong> Open documents in the VaultBridge application or let Claude call the embedded MCP tool (<code>vault_anonymize_file</code>). The document is read locally, tables are reconstructed, detected identifiers are replaced with placeholders, and AI-ready Markdown is generated.</li>
+      <li><strong>Reason in Claude:</strong> Claude receives the placeholder Markdown and works on it. Any value the detector missed is sent as written, so review the output first.</li>
+      <li><strong>Restore locally:</strong> Restore with the same tool you anonymized with: text anonymized in the app is restored in the app (<strong>Restore Clipboard</strong>, ⌘⇧U), and text anonymized through Claude is restored with <code>vault_restore_text</code>. The vault lives only in memory, so quitting the app or restarting your Claude client clears it. The tool never returns restored values to Claude.</li>
+    </ol>
+
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq-item">
+      <h3>What is VaultBridge?</h3>
+      <p>VaultBridge is an offline macOS desktop application and bundled Claude connector (stdio MCP server) that anonymizes documents on-device, provides Claude with clean placeholder Markdown, and restores answers locally.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How does VaultBridge protect document privacy when using Claude?</h3>
+      <p>All document reading, OCR, and detection happen entirely on your Mac. VaultBridge returns masked text, with detected values replaced by placeholders such as [PERSON_1] or [DATE_1], to Claude. Values it misses stay in the text. When you restore the AI's response, placeholders are replaced locally on your Mac, and the tool never returns restored values to Claude.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>What are the system requirements for VaultBridge?</h3>
+      <p>VaultBridge requires macOS 26.0 or later on an Apple Silicon Mac, and Claude Desktop or the Claude Code CLI.</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>How do I connect VaultBridge to Claude Desktop?</h3>
+      <p>Add the vaultbridge MCP server entry pointing to the embedded binary at /Applications/VaultBridge.app/Contents/MacOS/vaultbridge-mcp in your Claude Desktop configuration file (claude_desktop_config.json).</p>
+    </div>
+
+    <div class="faq-item">
+      <h3>Does VaultBridge guarantee that every sensitive value is detected?</h3>
+      <p>No. Detection is automated and cannot guarantee complete removal of sensitive information. Detection can miss values, particularly in non-standard formatting, unlabelled numbers, or unstructured health information. You must always review the masked output before sharing it with Claude or external services.</p>
+    </div>
+
+    <div class="footer">
+      <p>VaultBridge is developed by Quan Dang. &middot; <a href="support.html">Support</a> &middot; <a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Use</a></p>
+    </div>
+  </div>
+</body>
+</html>
