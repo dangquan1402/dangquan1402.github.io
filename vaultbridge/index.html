@@ -17,8 +17,10 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "VaultBridge",
-    "operatingSystem": "macOS 26.0 or later",
+    "operatingSystem": "macOS 15 or later on Apple Silicon",
     "applicationCategory": "ProductivityApplication",
+    "softwareVersion": "1.0.0",
+    "downloadUrl": "https://github.com/dangquan1402/vaultbridge-releases/releases/download/v1.0.0/VaultBridge-1.0.0.dmg",
     "description": "An offline macOS application and local Claude MCP connector that anonymizes documents on-device, replaces detected identifiers with placeholders, and restores AI answers locally without exposing personal data to the cloud.",
     "url": "https://dangquan1402.github.io/vaultbridge/",
     "author": {
@@ -53,7 +55,7 @@
         "name": "What are the system requirements for VaultBridge?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "VaultBridge requires macOS 26.0 or later on an Apple Silicon Mac, and Claude Desktop or the Claude Code CLI."
+          "text": "VaultBridge requires macOS 15 or later on Apple Silicon (M-series Mac), and Claude Desktop or the Claude Code CLI."
         }
       },
       {
@@ -84,7 +86,9 @@
     <p class="lead">Offline document anonymization and local Claude connector for macOS. Keep your original documents on your Mac, share clean placeholder Markdown with Claude, and restore answers locally.</p>
 
     <div class="cta">
-      <p>VaultBridge by Quan Dang &middot; macOS 26+ (Apple Silicon) &middot; coming soon</p>
+      <a class="download-button" href="https://github.com/dangquan1402/vaultbridge-releases/releases/download/v1.0.0/VaultBridge-1.0.0.dmg">Download VaultBridge 1.0.0</a>
+      <p>VaultBridge 1.0.0 by Quan Dang &middot; macOS 15 or later on Apple Silicon &middot; Signed and notarized by Apple</p>
+      <p class="checksum">SHA-256: <code>6704c2cc859d045cb186e37caffb806821a11cbee165ec75e15a6eb4c46ab5d3</code></p>
     </div>
 
     <h2>What it does</h2>
@@ -99,6 +103,39 @@
       <li><strong>Local restoration boundary:</strong> Restores tokens in AI responses back to original values on your Mac. Restored plaintext is written exclusively to the macOS clipboard (marked with concealed and transient pasteboard markers) or saved to a private local file in <code>~/Downloads</code> (with owner-only <code>0600</code> permissions; file output is available through the Claude connector). The tool never returns restored values to Claude.</li>
       <li><strong>Review before sharing:</strong> Automated detection is not guaranteed and can miss values. Users must review masked output before sharing it.</li>
     </ul>
+
+    <h2>Screenshots</h2>
+    <div class="screenshots">
+      <figure class="screenshot-card">
+        <img src="images/01-dropzone.webp" alt="VaultBridge drop zone interface for dragging and dropping documents on macOS" width="1440" height="900" loading="lazy">
+        <figcaption><strong>On-Device Document Anonymization:</strong> Drag and drop PDFs, scans, and images into VaultBridge for local processing on your Mac before sharing with AI.</figcaption>
+      </figure>
+
+      <figure class="screenshot-card">
+        <img src="images/02-markdown-preview.webp" alt="VaultBridge Markdown preview showing consistent placeholder tokens across text and reconstructed tables" width="1440" height="900" loading="lazy">
+        <figcaption><strong>AI-Ready Markdown with Pseudonyms:</strong> Replaces detected identifiers with consistent placeholders across pages and reconstructed tables.</figcaption>
+      </figure>
+
+      <figure class="screenshot-card">
+        <img src="images/03-presets.webp" alt="VaultBridge industry presets picker showing Legal, Accounting and Tax, Healthcare, Real Estate, and General presets" width="1440" height="900" loading="lazy">
+        <figcaption><strong>Tailored Industry Presets:</strong> Switch between Legal, Accounting &amp; Tax, Healthcare, Real Estate, and General entity detection rules.</figcaption>
+      </figure>
+
+      <figure class="screenshot-card">
+        <img src="images/04-safety-net.webp" alt="VaultBridge fail-closed safety net masking unknown capitalized names" width="1440" height="900" loading="lazy">
+        <figcaption><strong>Fail-Closed Safety Net:</strong> Mask unknown capitalized names that standard detection rules did not recognise.</figcaption>
+      </figure>
+
+      <figure class="screenshot-card">
+        <img src="images/05-restore-clipboard.webp" alt="VaultBridge clipboard restoration with floating toast notification confirming unmasked tokens" width="1440" height="900" loading="lazy">
+        <figcaption><strong>Restore AI Answers Locally:</strong> One shortcut (⌘⇧U) restores original values from your local vault directly to your macOS clipboard.</figcaption>
+      </figure>
+
+      <figure class="screenshot-card">
+        <img src="images/06-multi-document.webp" alt="VaultBridge multi-document queue sharing a unified project vault" width="1440" height="900" loading="lazy">
+        <figcaption><strong>Shared Project Vault Across Documents:</strong> Maintain consistent pseudonyms across multiple documents in a shared review session.</figcaption>
+      </figure>
+    </div>
 
     <h2>The Anonymize &rarr; Reason &rarr; Restore Workflow</h2>
     <ol>
@@ -121,7 +158,7 @@
 
     <div class="faq-item">
       <h3>What are the system requirements for VaultBridge?</h3>
-      <p>VaultBridge requires macOS 26.0 or later on an Apple Silicon Mac, and Claude Desktop or the Claude Code CLI.</p>
+      <p>VaultBridge requires macOS 15 or later on Apple Silicon (M-series Mac), and Claude Desktop or the Claude Code CLI.</p>
     </div>
 
     <div class="faq-item">
