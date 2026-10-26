@@ -27,6 +27,11 @@ REDIRECTS = {
     "pdf-compressor/privacy.html": "https://smartpdfcompressor.com/privacy/",
     "pdf-compressor/compress-pdf-iphone-without-uploading/index.html": "https://smartpdfcompressor.com/compress-pdf-iphone-without-uploading/",
     "pdf-compressor/shrink-scanned-pdf-for-email/index.html": "https://smartpdfcompressor.com/shrink-scanned-pdf-for-email/",
+    "img2pdf/index.html": "https://getimg2pdf.com/",
+    "img2pdf/support.html": "https://getimg2pdf.com/support/",
+    "img2pdf/privacy.html": "https://getimg2pdf.com/privacy/",
+    "img2pdf/photos-to-pdf-iphone-no-watermark/index.html": "https://getimg2pdf.com/convert-photos-to-pdf-iphone/",
+    "photos-to-pdf-iphone-no-watermark/index.html": "https://getimg2pdf.com/convert-photos-to-pdf-iphone/",
     "pasture/index.html": "https://pasturebible.com/",
     "pasture/privacy.html": "https://pasturebible.com/privacy/",
     "pasture/terms.html": "https://pasturebible.com/terms/",
@@ -53,10 +58,6 @@ BANNED = [
     (re.compile(r"6760960875"), "competitor app id"),
 ]
 LANDING = {
-    "img2pdf/index.html": (
-        "6762545311",
-        "https://apps.apple.com/us/app/img2pdf-image-to-pdf-maker/id6762545311",
-    ),
     "linkpocket/index.html": (
         "6814458876",
         "https://apps.apple.com/us/app/linkpocket-bookmark-folders/id6814458876",
