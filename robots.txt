@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-Allow: /img2pdf/llms.txt
-Allow: /img2pdf/llms-full.txt
 
 User-agent: OAI-SearchBot
 Allow: /
