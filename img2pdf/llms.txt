@@ -13,5 +13,10 @@
 - [Combine Multiple Photos into One PDF](https://dangquan1402.github.io/img2pdf/guides/combine-photos-into-one-pdf/): Step-by-step tutorial on compiling multiple pictures into a single organized PDF document.
 
 ## Comparisons
-- [img2pdf vs Apple Notes Scanner](https://dangquan1402.github.io/img2pdf/compare/apple-notes-scanner/): Comparing iOS's built-in document scanner against img2pdf for document control and email sizing.
+- [Comparison Index](https://dangquan1402.github.io/img2pdf/compare/): Directory comparing img2pdf against iPhone scanner tools and apps.
+- [img2pdf vs Apple Notes Scanner](https://dangquan1402.github.io/img2pdf/compare/apple-notes-scanner/): Built-in iOS scanner convenience versus dedicated page layouts, reordering, and email compression.
+- [img2pdf vs Adobe Scan](https://dangquan1402.github.io/img2pdf/compare/adobe-scan/): Adobe Document Cloud ecosystem and sign-in requirements versus 100% on-device offline privacy.
+- [img2pdf vs Genius Scan](https://dangquan1402.github.io/img2pdf/compare/genius-scan/): The Grizzly Labs enterprise cloud auto-upload tool versus free included on-device OCR and encryption.
+- [img2pdf vs iLovePDF](https://dangquan1402.github.io/img2pdf/compare/ilovepdf/): Broad web-first PDF suite with server uploads versus private native iOS processing with zero quotas.
+- [img2pdf vs Smallpdf](https://dangquan1402.github.io/img2pdf/compare/smallpdf/): Team-oriented cloud document portal with subscription paywalls versus unlimited, free on-device scanning.
 - [img2pdf vs Online Web PDF Converters](https://dangquan1402.github.io/img2pdf/compare/online-pdf-converters/): Privacy, speed, and offline capability differences between native iOS processing and browser upload portals.

@@ -33,14 +33,11 @@ Q: Can I sign documents or fill out forms before exporting?
 A: Yes. You can draw signatures, add dates, initials, checkmarks, and text boxes directly onto any page. All annotations are permanently flattened into the PDF.
 
 Q: How does img2pdf keep PDF file sizes small for email?
-A: img2pdf offers Small, Standard, and Best compression presets with an instant file size estimate before sharing, so you can email documents without exceeding attachment limits.
+A: img2pdf offers Small, Standard, and Best quality presets with an instant file size estimate before sharing, so you can email documents without exceeding attachment limits.
 
 ---
 
 ## 2. Guide: How to Turn Photos into PDF on iPhone with No Watermark
-
-### The Problem with Watermarks
-Many scanner apps on the App Store place large promotional watermarks across exported PDFs unless you purchase an ongoing subscription. For official submissions to employers, banks, courts, or government offices, watermark branding looks unprofessional.
 
 ### Free Built-in iOS Methods
 1. Apple's Document Scanner (Files and Notes apps):
@@ -52,15 +49,9 @@ Many scanner apps on the App Store place large promotional watermarks across exp
 3. Apple Files Create PDF Action:
    - In Files, select multiple images, tap More (...), and choose Create PDF.
 
-### Where img2pdf Helps
-Built-in routes lack drag-and-drop page sorting, create massive file sizes that bounce in email, and do not offer standardized A4/Letter margins. img2pdf adds visual page sorting, size compression estimates, on-device OCR, and digital signatures with zero watermarks.
-
 ---
 
 ## 3. Guide: How to Convert JPG to PDF on iPhone: 3 Free Built-in Methods
-
-### Overview
-Sending raw JPG images creates issues with inconsistent print scaling, multi-page fragmentation, and unsearchable text. Converting JPGs to PDF standardizes the document.
 
 ### The 3 Built-in Methods
 1. Apple Files App Quick Action:
@@ -69,67 +60,41 @@ Sending raw JPG images creates issues with inconsistent print scaling, multi-pag
    - Select the JPG in Photos, tap Share > Print, pinch out on the preview thumbnail, and tap Share.
 3. Apple Shortcuts Automation:
    - Create a Shortcut with Select Photos > Make PDF > Share.
-   - Reference: Apple "Shortcuts User Guide for iPhone" (https://support.apple.com/guide/shortcuts/welcome/ios).
-
-### Limitations of Built-in Methods
-Built-in tools do not let you preview or reorder pages visually, produce massive file sizes (20MB+ for a few photos), and lack page dimension controls.
-
-### Where img2pdf Helps
-img2pdf provides visual thumbnail sorting, live file size estimation with compression presets, standard US Letter/A4 sheet fitting, and on-device OCR.
 
 ---
 
 ## 4. Guide: How to Combine Multiple Photos into One PDF on iPhone
 
-### Overview
-Bundling multiple photos into a single PDF ensures pages are viewed in the correct sequence, simplifies sharing into a single email attachment, and ensures compatibility across all operating systems.
-
-### Built-in Methods
-1. Files App Multi-Select:
-   - Select images in Files, tap More (...), choose Create PDF.
-2. Apple Notes Multi-Page Scanning:
-   - Open Notes, tap Camera > Scan Documents, capture all pages sequentially, and tap Save.
-3. Apple Shortcuts Automation:
-   - Build a custom workflow to select multiple photos and compile them into a PDF.
-
-### Where img2pdf Helps
-- Numbered photo picker that shows tap order.
-- Drag-and-drop page reordering and one-tap chronological sorting.
-- Multi-image grid layouts (1, 2, or 4 images per sheet).
-- Output compression with live size estimation.
-
----
-
-## 5. Comparison: img2pdf vs Apple Notes Scanner
-
-### Summary
-Apple Notes scanner is pre-installed on iOS and excels at quick captures directly into notebooks. img2pdf is a dedicated document utility designed for multi-page organization, custom paper sizes, redactions, and small email attachments.
-
-### Where Apple Notes Is Better
-- Pre-installed with iOS; zero downloads needed.
-- Integrated into the Notes app alongside checklists, tables, and drawings.
-- Instant device access via Apple ID across iPad and Mac.
-
-### Where img2pdf Is Better
+### Key Techniques
 - Visual drag-and-drop page reordering.
-- Standardized US Letter and A4 page sizing and multi-image grids.
-- Live file size estimates and compression controls.
-- Permanent redaction tools and 128-bit AES password encryption.
+- Reverse order or sort chronologically by capture timestamp.
+- 1, 2, or 4 images per sheet grid layouts.
+- Output compression with live size estimates before sharing.
 
 ---
 
-## 6. Comparison: img2pdf vs Online Web PDF Converters
+## 5. Comparisons Directory
 
-### Summary
-Online converters offer browser-based conversion without installing an app, but require uploading sensitive files across the internet. img2pdf is a 100% on-device iOS app that processes all documents locally without uploads.
+### img2pdf vs Apple Notes Scanner
+- Apple Notes is pre-installed and integrates directly with iCloud notes.
+- img2pdf adds visual page sorting, standard US Letter/A4 layouts, email compression size estimates, on-device OCR layer, and permanent redactions.
 
-### Where Online Converters Are Better
-- No app installation required.
-- Accessible on Windows, Android, Chromebooks, and Linux.
+### img2pdf vs Adobe Scan
+- Adobe Scan integrates with Adobe Creative Cloud and Acrobat, but requires an Adobe ID and uploads documents to Adobe Document Cloud servers.
+- img2pdf is 100% on-device with zero sign-ups, works completely offline, and includes free compression controls.
 
-### Where img2pdf Is Better
-- Absolute privacy: files never leave your iPhone sandbox.
-- Operates completely offline without cellular or Wi-Fi.
-- Faster multi-page performance with zero upload delays.
-- Integrated camera document scanner with edge detection.
-- Permanent burned redactions and digital signatures.
+### img2pdf vs Genius Scan
+- Genius Scan (The Grizzly Labs) provides enterprise cloud auto-exports and MDM support, but locks OCR text recognition and PDF encryption behind a paid Genius Scan+ upgrade.
+- img2pdf includes on-device OCR, password protection, and compression presets completely free.
+
+### img2pdf vs iLovePDF
+- iLovePDF offers a broad cloud tool suite for converting Word/Excel to PDF across web browsers.
+- img2pdf is a native, private iPhone scanner that never uploads documents to third-party web servers and enforces zero daily task quotas.
+
+### img2pdf vs Smallpdf
+- Smallpdf offers multi-user e-signing and team workspaces, but enforces strict daily usage limits on free users before demanding a $12/month Pro subscription.
+- img2pdf offers unlimited free on-device conversions with complete privacy and offline functionality.
+
+### img2pdf vs Online Web PDF Converters
+- Web upload tools require transmitting sensitive documents across the web to third-party servers.
+- img2pdf processes all files inside the native iOS sandbox with zero uploads and works without an internet connection.
